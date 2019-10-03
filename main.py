@@ -1,6 +1,6 @@
 from tkinter import *
 import datetime
-
+from contacts import Contacts #importing the Contacts class from contacts.py
 date = datetime.datetime.now().date()
 date = str(date)
 # date = date.strftime("%d-%m-%y")
@@ -28,7 +28,7 @@ class Application(object):# inheriting built in class object
         
         #buttons
         #view people
-        self.view_button = Button(self.bottom_frame, text = 'View Contacts', width = 11, font = 'arial 12 bold', bg = '#c75678', fg = '#f0dde0')
+        self.view_button = Button(self.bottom_frame, text = 'View Contacts', width = 11, font = 'arial 12 bold', bg = '#c75678', fg = '#f0dde0', command = self.contacts)
         self.view_button.place(x = 250, y = 70)
         #add people
         self.add_button = Button(self.bottom_frame, text = 'Add Contacts', width = 11, font = 'arial 12 bold', bg = '#195d8e', fg = '#f0dde0')
@@ -36,7 +36,12 @@ class Application(object):# inheriting built in class object
         #about us
         self.about_button = Button(self.bottom_frame, text = 'About Us', width = 11, font = 'arial 12 bold', bg = '#898bb7', fg = '#f0dde0')
         self.about_button.place(x = 250, y = 190)
-        
+    #creating a function for the button contacts to call the new window in contacts.py
+    # need to import Contacts class from the file contacts.py
+    def contacts(self):
+        phone_contacts = Contacts() # phone_contacts is the object of the class
+        #Contacts
+            
 def main():
     root = Tk()
     app = Application(root)#created app object of the class Application
