@@ -90,5 +90,17 @@ class Contacts(Toplevel):
         # setting scrollbar with the list box
         self.list_box.config(yscrollcommand = self.scroll_bar1.set)
         # as the lis box is populated, the scrollbar shrinks
+        #adding buttons
+        btn_add = Button(self.bottom_frame, text = 'Add Contacts', width = 14, font = 'Arial 12 bold')
+        btn_add.grid(row = 0, column = 2, padx = 20, pady = 10, sticky = N)
+        # distance: 20 pixels from left and 10 pixels from top, sticky = N means the
+        # button will be closed to the top rim of the frame
+        # the list box covers the single row
+        btn_update = Button(self.bottom_frame, text = 'Update Contacts', width = 14, font = 'Arial 12 bold')
+        btn_update.grid(row = 0, column = 2, padx = 20, pady = 50, sticky = N)
         
-    
+        btn_show = Button(self.bottom_frame, text = 'Show Contacts', width = 14, font = 'Arial 12 bold')
+        btn_show.grid(row = 0, column = 2, padx = 20, pady = 90, sticky = N)
+        
+        btn_delete = Button(self.bottom_frame, text = 'Delete Contacts', width = 14, font = 'Arial 12 bold')
+        btn_delete.grid(row = 0, column = 2, padx = 20, pady = 130, sticky = N)
