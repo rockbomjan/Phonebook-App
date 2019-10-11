@@ -1,6 +1,7 @@
 from tkinter import *
 import datetime
 from contacts import Contacts #importing the Contacts class from contacts.py
+from add_contacts import Add_Contacts
 date = datetime.datetime.now().date()
 date = str(date)
 # date = date.strftime("%d-%m-%y")
@@ -31,7 +32,7 @@ class Application(object):# inheriting built in class object
         self.view_button = Button(self.bottom_frame, text = 'View Contacts', width = 11, font = 'arial 12 bold', bg = '#c75678', fg = '#f0dde0', command = self.contacts)
         self.view_button.place(x = 250, y = 70)
         #add people
-        self.add_button = Button(self.bottom_frame, text = 'Add Contacts', width = 11, font = 'arial 12 bold', bg = '#195d8e', fg = '#f0dde0')
+        self.add_button = Button(self.bottom_frame, text = 'Add Contacts', width = 11, font = 'arial 12 bold', bg = '#195d8e', fg = '#f0dde0', command = self.add_contacts_func)
         self.add_button.place(x = 250, y = 130)
         #about us
         self.about_button = Button(self.bottom_frame, text = 'About Us', width = 11, font = 'arial 12 bold', bg = '#898bb7', fg = '#f0dde0')
@@ -41,6 +42,9 @@ class Application(object):# inheriting built in class object
     def contacts(self):
         phone_contacts = Contacts() # phone_contacts is the object of the class
         #Contacts
+    def add_contacts_func(self):
+        add_contacts_win = Add_Contacts()
+        
         
             
 def main():

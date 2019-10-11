@@ -1,6 +1,6 @@
 from tkinter import *
 from add_contacts import Add_Contacts
-# import sqlite3
+import sqlite3
 import datetime
 # connect_1 = sqlite3.connect('database.db')# In this case, we have a database called
 # database.db, it will fetch it otherwiese will create a new database. When the program
@@ -45,6 +45,8 @@ import datetime
 # 5|country|TEXT|1||0
 # 6|email|TEXT|0||0
 # sqlite>
+conn = sqlite3.connect('database.db')
+cur = conn.cursor()# we use cursor to run queries
 
 date = datetime.datetime.now().date()
 date = str(date)
@@ -91,6 +93,22 @@ class Contacts(Toplevel):
         # setting scrollbar with the list box
         self.list_box.config(yscrollcommand = self.scroll_bar1.set)
         # as the lis box is populated, the scrollbar shrinks
+        
+        #displaying contact details
+        persons = cur.execute('select * from "addressbook"').fetchall()
+        print(persons)# the contact is displayed in a list and the details
+        # in a tuple:
+        # Output:
+        #[(1, 'Rock', 'Bomjan', 'rockbomjan@gmail.com', '01235461239874', 'd-11, Beshi, Palpa,  Nepal'),
+        #  (2, 'R', 'Tamang', 'rtamang@gmail.com', '01235461239874', 'k-11, Beshi, Palpa, Nepal')]
+        # running loop to populate the list box
+        count = 0
+        for person in persons:
+            self.list_box.insert(count, str(person[0])+'.   '+ person[1]+' '+ person[2])
+            count += 1
+        # the items in a list or a tuple is accessed using index number starting
+        # from [0] and the integer index number is changed to string to append.
+        
         #adding buttons
         btn_show = Button(self.bottom_frame, text = 'Show', width = 10, font = 'Arial 12 bold')
         btn_show.grid(row = 0, column = 2, padx = 20, pady = 10, sticky = N)
@@ -108,4 +126,5 @@ class Contacts(Toplevel):
     
     #Method for adding contact and calling add_contacts.py
     def add_contact(self):
-        add_page = Add_Contacts()      
+        add_page = Add_Contacts()
+        self.destroy() # to exit contacts.py window when Add Button is clicked 
