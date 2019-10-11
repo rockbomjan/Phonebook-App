@@ -96,7 +96,8 @@ class Contacts(Toplevel):
         
         #displaying contact details
         persons = cur.execute('select * from "addressbook"').fetchall()
-        print(persons)# the contact is displayed in a list and the details
+        print(persons) #testing the function
+        # the contact is displayed in a list and the details
         # in a tuple:
         # Output:
         #[(1, 'Rock', 'Bomjan', 'rockbomjan@gmail.com', '01235461239874', 'd-11, Beshi, Palpa,  Nepal'),
