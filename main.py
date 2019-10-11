@@ -41,6 +41,7 @@ class Application(object):# inheriting built in class object
     def contacts(self):
         phone_contacts = Contacts() # phone_contacts is the object of the class
         #Contacts
+        
             
 def main():
     root = Tk()

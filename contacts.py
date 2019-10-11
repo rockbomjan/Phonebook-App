@@ -1,10 +1,11 @@
 from tkinter import *
-import sqlite3
+from add_contacts import Add_Contacts
+# import sqlite3
 import datetime
-connect_1 = sqlite3.connect('database.db')# In this case, we have a database called
+# connect_1 = sqlite3.connect('database.db')# In this case, we have a database called
 # database.db, it will fetch it otherwiese will create a new database. When the program
 # runs, a new database.db is created.
-cursor_1 = connect_1.cursor() #to form queries.
+# cursor_1 = connect_1.cursor() #to form queries.
 #Now we will open this database.db in command prompt
 # command:
 # sqlite3 database.db
@@ -91,16 +92,20 @@ class Contacts(Toplevel):
         self.list_box.config(yscrollcommand = self.scroll_bar1.set)
         # as the lis box is populated, the scrollbar shrinks
         #adding buttons
-        btn_add = Button(self.bottom_frame, text = 'Add Contacts', width = 14, font = 'Arial 12 bold')
-        btn_add.grid(row = 0, column = 2, padx = 20, pady = 10, sticky = N)
+        btn_show = Button(self.bottom_frame, text = 'Show', width = 10, font = 'Arial 12 bold')
+        btn_show.grid(row = 0, column = 2, padx = 20, pady = 10, sticky = N)
         # distance: 20 pixels from left and 10 pixels from top, sticky = N means the
         # button will be closed to the top rim of the frame
         # the list box covers the single row
-        btn_update = Button(self.bottom_frame, text = 'Update Contacts', width = 14, font = 'Arial 12 bold')
-        btn_update.grid(row = 0, column = 2, padx = 20, pady = 50, sticky = N)
+        btn_add = Button(self.bottom_frame, text = 'Add', width = 10, font = 'Arial 12 bold', command = self.add_contact)
+        btn_add.grid(row = 0, column = 2, padx = 20, pady = 50, sticky = N)
         
-        btn_show = Button(self.bottom_frame, text = 'Show Contacts', width = 14, font = 'Arial 12 bold')
-        btn_show.grid(row = 0, column = 2, padx = 20, pady = 90, sticky = N)
+        btn_update = Button(self.bottom_frame, text = 'Update', width = 10, font = 'Arial 12 bold')
+        btn_update.grid(row = 0, column = 2, padx = 20, pady = 90, sticky = N)
         
-        btn_delete = Button(self.bottom_frame, text = 'Delete Contacts', width = 14, font = 'Arial 12 bold')
+        btn_delete = Button(self.bottom_frame, text = 'Delete', width = 10, font = 'Arial 12 bold')
         btn_delete.grid(row = 0, column = 2, padx = 20, pady = 130, sticky = N)
+    
+    #Method for adding contact and calling add_contacts.py
+    def add_contact(self):
+        add_page = Add_Contacts()      
