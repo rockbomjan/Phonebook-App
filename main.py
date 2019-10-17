@@ -43,7 +43,8 @@ class Application(object):# inheriting built in class object
         phone_contacts = Contacts() # phone_contacts is the object of the class
         #Contacts
     def add_contacts_func(self):
-        add_contacts_win = Add_Contacts()
+        add_contacts_win = Add_Contacts() # add_contacts_win is the object
+        # of the class Add_Contacts
         
         
             
