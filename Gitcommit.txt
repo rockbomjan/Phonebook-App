@@ -1,0 +1,22 @@
+https://github.com/
+>git init
+>git status
+>git add -A
+>git status
+>git commit -m "first commit"
+>git init
+>git add -A
+>git add README.md
+>git commit -m "first commit"
+>git remote add origin https://github.com/username/git file
+>git push -u origin master
+for the unmatching repository
+>git add -A
+>git status
+>git commit -m 'first commit'
+>git remote
+>git fetch
+>git pull
+>git push
+
+
