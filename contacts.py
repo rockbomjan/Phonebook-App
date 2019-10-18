@@ -141,7 +141,7 @@ class Contacts(Toplevel):
         # msgbox_name = "Do you want to delete the selected contact", person.split(".")[1], "?"
         # info = messagebox.askquestion("Warning!", msgbox_name)
         msgbox_name = person.split(".")[1]
-        info = messagebox.askquestion("Warning!", f"Do you want to delete{msgbox_name}?")
+        info = messagebox.askquestion("Warning!",f"Do you want to delete{msgbox_name}?")
         if info == 'yes':
             try:
                 cur.execute(query)

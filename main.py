@@ -2,6 +2,7 @@ from tkinter import *
 import datetime
 from contacts import Contacts #importing the Contacts class from contacts.py
 from add_contacts import Add_Contacts
+from about_us import About_us
 date = datetime.datetime.now().date()
 date = str(date)
 # date = date.strftime("%d-%m-%y")
@@ -35,7 +36,7 @@ class Application(object):# inheriting built in class object
         self.add_button = Button(self.bottom_frame, text = 'Add Contacts', width = 11, font = 'arial 12 bold', bg = '#195d8e', fg = '#f0dde0', command = self.add_contacts_func)
         self.add_button.place(x = 250, y = 130)
         #about us
-        self.about_button = Button(self.bottom_frame, text = 'About Us', width = 11, font = 'arial 12 bold', bg = '#898bb7', fg = '#f0dde0')
+        self.about_button = Button(self.bottom_frame, text = 'About Us', width = 11, font = 'arial 12 bold', bg = '#898bb7', fg = '#f0dde0', command = self.about_us)
         self.about_button.place(x = 250, y = 190)
     #creating a function for the button contacts to call the new window in contacts.py
     # need to import Contacts class from the file contacts.py
@@ -45,6 +46,11 @@ class Application(object):# inheriting built in class object
     def add_contacts_func(self):
         add_contacts_win = Add_Contacts() # add_contacts_win is the object
         # of the class Add_Contacts
+    #About us
+    def about_us(self):
+        about_us_page = About_us()# creating an object to call the constructor.
+    
+    
         
         
             
